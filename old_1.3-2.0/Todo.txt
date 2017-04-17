@@ -1,0 +1,27 @@
+1.  Clear up Code
+ -  Member.exe: Name Check
+2.  Report Generator
+ -  Use CSV
+3.  Bug Detector
+ -  Any Data < 0
+ -  Add TCount and Check Data
+4.  Debug Mode
+ -  Show Variable Changed
+ -  Force Variable to Change
+5.x Tutorial Mode
+ -  First Time Use / >tutorial
+6.  GUI
+7.  Configurations
+ -  Admin Mode to Start?
+ -  Admin Mode to CMD?
+ -  Admin PW? [Encrypted]
+ -  Checkin Time?
+ -  Checkin Frequency (1-3)?
+ -  Use StuID?
+ -  Double Check when Checkin?
+8.  Fix >list Usage
+9.* Sort list
+ -  Name
+ -  ID/StuID
+ -  Counter/Status
+10. MemberDB: ini-ize

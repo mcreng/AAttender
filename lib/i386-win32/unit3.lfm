@@ -1,0 +1,51 @@
+object form_about: Tform_about
+  Left = 136
+  Height = 200
+  Top = 336
+  Width = 464
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'About AAttender'
+  ClientHeight = 200
+  ClientWidth = 464
+  LCLVersion = '1.2.4.0'
+  object Panel1: TPanel
+    Left = 0
+    Height = 218
+    Top = 0
+    Width = 466
+    Caption = 'Panel1'
+    TabOrder = 2
+  end
+  object Memo1: TMemo
+    Left = 0
+    Height = 160
+    Top = 0
+    Width = 464
+    Color = clMenu
+    Font.Height = -13
+    Lines.Strings = (
+      'AAttender is a program allows attendance taking by using a computer. '
+      'This program is dedicated to HKDSE ICT SBA.'
+      ''
+      'Program Name: AAttender'
+      'Program Version: v2.1'
+      'Programmed by: Tse Ho Nam (Peter)'
+      'Contact Method: tsehonam@gmail.com'
+      ''
+      'Thank you for using this program!'
+    )
+    ParentFont = False
+    ReadOnly = True
+    TabOrder = 0
+  end
+  object Button1: TButton
+    Left = 192
+    Height = 25
+    Top = 168
+    Width = 83
+    Caption = 'Close'
+    OnClick = Button1Click
+    TabOrder = 1
+  end
+end

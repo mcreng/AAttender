@@ -1,0 +1,57 @@
+program Config;
+uses sysutils,crt, classes, inifiles;
+const
+   version = '1.0';
+   devphase = 'Alpha';
+   directory = 'C:\Windows\winlog\';
+
+var
+  ini: TINIFile; f: text;
+begin
+  assign(f, directory + 'config.ini');
+  if not fileexists(directory + 'config.ini') then
+   begin
+      rewrite(f);
+      writeln(f, '; Configuration Files of Attendance Program');
+      writeln(f);
+      writeln(f, '[Main]');
+      writeln(f, 'Admin=True');
+      writeln(f, 'SortBy=ID');
+      writeln(f);
+      writeln(f, '[AdminMode]');
+      writeln(f, 'StartUp=False');
+      writeln(f, 'About=False');
+      writeln(f, 'Checkin=False');
+      writeln(f, 'Cls=False');
+      writeln(f, 'Edit=True');
+      writeln(f, 'Exit=False');
+      writeln(f, 'Gen=True');
+      writeln(f, 'Help=False');
+      writeln(f, 'List=False');
+      writeln(f, 'Reload=False');
+      writeln(f, 'Reset=True');
+      writeln(f, 'Shift=True');
+      writeln(f, 'Warn=True');
+      writeln(f, 'Unwarn=True');
+      writeln(f, 'PW=#gilbert1415');
+      writeln(f);
+      writeln(f, '[CheckIn]');
+      writeln(f, 'Frequency=3');
+      writeln(f, 'Time1_Start=0700');
+      writeln(f, 'Time1_Late=0735');
+      writeln(f, 'Time1_End=0800');
+      writeln(f, 'Time2_Start=1245');
+      writeln(f, 'Time2_Late=1330');
+      writeln(f, 'Time2_End=1400');
+      writeln(f, 'Time3_Start=1520');
+      writeln(f, 'Time3_Late=1540');
+      writeln(f, 'Time3_End=1700');
+      writeln(f, 'DoubleChk=True');
+      writeln(f, 'Stu_ID=False');
+      close(f);
+   end;
+  ini := TINIFile.Create(directory + 'config.ini');
+
+  ini.free;
+end.
+

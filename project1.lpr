@@ -1,0 +1,25 @@
+program AAttender;
+
+{$mode objfpc}{$H+}
+
+uses
+  {$IFDEF UNIX}{$IFDEF UseCThreads}
+  cthreads,
+  {$ENDIF}{$ENDIF}
+  Interfaces, // this includes the LCL widgetset
+  Forms, Unit1, Unit2, Unit3;
+
+{$R *.res}
+
+
+begin
+  Application.Title:='AAttender v2.1';
+  RequireDerivedFormResource := True;
+  Application.Initialize;
+  Application.CreateForm(TForm_main, Form_main);
+  Application.CreateForm(Tform_memedit, form_memedit);
+  Application.CreateForm(Tform_about, form_about);
+  Application.Run;
+
+end.
+

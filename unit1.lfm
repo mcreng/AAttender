@@ -1,0 +1,1742 @@
+object Form_main: TForm_main
+  Left = 52
+  Height = 571
+  Top = 64
+  Width = 470
+  AutoSize = True
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'AAttender'
+  ClientHeight = 551
+  ClientWidth = 470
+  Menu = MainMenu1
+  OnActivate = FormActivate
+  LCLVersion = '1.2.4.0'
+  object PgCtrl: TPageControl
+    Left = 0
+    Height = 553
+    Top = -1
+    Width = 472
+    ActivePage = Tab_Settings
+    TabIndex = 2
+    TabOrder = 0
+    OnChange = PgCtrlChange
+    object Tab_Checkin: TTabSheet
+      Caption = 'Check In'
+      ClientHeight = 525
+      ClientWidth = 464
+      object tb_input: TEdit
+        Left = 0
+        Height = 23
+        Top = 498
+        Width = 376
+        OnKeyPress = tb_inputKeyPress
+        TabOrder = 0
+      end
+      object logscr: TMemo
+        Left = 0
+        Height = 496
+        Top = 0
+        Width = 464
+        OnChange = logscrChange
+        ReadOnly = True
+        ScrollBars = ssAutoVertical
+        TabOrder = 1
+      end
+      object btn_checkin: TSpeedButton
+        Left = 378
+        Height = 25
+        Top = 498
+        Width = 86
+        Caption = 'Check In'
+        OnClick = btn_checkinClick
+      end
+    end
+    object Tab_Admin: TTabSheet
+      Caption = 'Administration'
+      ClientHeight = 525
+      ClientWidth = 464
+      object logscradmin: TMemo
+        Left = 0
+        Height = 288
+        Top = 240
+        Width = 464
+        OnChange = logscradminChange
+        ReadOnly = True
+        ScrollBars = ssAutoVertical
+        TabOrder = 0
+      end
+      object GroupBox1: TGroupBox
+        Left = 64
+        Height = 80
+        Top = 8
+        Width = 328
+        Caption = 'Shift'
+        ClientHeight = 62
+        ClientWidth = 324
+        TabOrder = 1
+        object btn_shift: TButton
+          Left = 240
+          Height = 25
+          Top = 0
+          Width = 75
+          Caption = 'Shift'
+          OnClick = btn_shiftClick
+          TabOrder = 0
+        end
+        object cbox_id: TComboBox
+          Left = 72
+          Height = 23
+          Top = 0
+          Width = 156
+          ItemHeight = 15
+          Style = csDropDownList
+          TabOrder = 1
+        end
+        object Label1: TLabel
+          Left = 10
+          Height = 15
+          Top = 8
+          Width = 51
+          Caption = 'ID/Name:'
+          ParentColor = False
+        end
+        object cbox_slot: TComboBox
+          Left = 72
+          Height = 23
+          Top = 32
+          Width = 156
+          ItemHeight = 15
+          Style = csDropDownList
+          TabOrder = 2
+        end
+        object Label3: TLabel
+          Left = 8
+          Height = 15
+          Top = 40
+          Width = 53
+          Caption = 'Time Slot:'
+          ParentColor = False
+        end
+        object btn_unshift: TButton
+          Left = 240
+          Height = 25
+          Top = 30
+          Width = 75
+          Caption = 'Undo Shift'
+          OnClick = btn_unshiftClick
+          TabOrder = 3
+        end
+      end
+      object GroupBox2: TGroupBox
+        Left = 64
+        Height = 48
+        Top = 96
+        Width = 328
+        Caption = 'Debug Mode'
+        ClientHeight = 30
+        ClientWidth = 324
+        TabOrder = 2
+        object Label2: TLabel
+          Left = 26
+          Height = 15
+          Top = 8
+          Width = 35
+          Caption = 'Status:'
+          ParentColor = False
+        end
+        object lb_debug: TLabel
+          Left = 72
+          Height = 15
+          Top = 8
+          Width = 21
+          Caption = 'OFF'
+          Font.Color = clRed
+          ParentColor = False
+          ParentFont = False
+        end
+        object btn_debugmode: TButton
+          Left = 240
+          Height = 25
+          Top = 0
+          Width = 75
+          Caption = 'Toggle On'
+          OnClick = btn_debugmodeClick
+          TabOrder = 0
+        end
+      end
+      object GroupBox3: TGroupBox
+        Left = 64
+        Height = 80
+        Top = 152
+        Width = 328
+        Caption = 'Compile List'
+        ClientHeight = 62
+        ClientWidth = 324
+        TabOrder = 3
+        object cbox_list: TComboBox
+          Left = 72
+          Height = 23
+          Top = 0
+          Width = 156
+          ItemHeight = 15
+          Items.Strings = (
+            'Duty Count'
+            'Late Count'
+            'Absent Count'
+            'Shift Count'
+            'Total Count'
+            'Present List'
+            'Late List'
+            'Absent (On Duty) List'
+            'Absent (All) List'
+            'All List'
+          )
+          Style = csDropDownList
+          TabOrder = 0
+        end
+        object btn_compile: TButton
+          Left = 240
+          Height = 25
+          Top = 32
+          Width = 75
+          Caption = 'Compile'
+          OnClick = btn_compileClick
+          TabOrder = 1
+        end
+        object Label5: TLabel
+          Left = 40
+          Height = 15
+          Top = 8
+          Width = 21
+          Caption = 'List:'
+          ParentColor = False
+        end
+        object cbox_sortby: TComboBox
+          Left = 72
+          Height = 23
+          Top = 32
+          Width = 156
+          ItemHeight = 15
+          Items.Strings = (
+            'ID'
+            'Name'
+            'Count/Status'
+          )
+          Style = csDropDownList
+          TabOrder = 2
+        end
+        object Label6: TLabel
+          Left = 21
+          Height = 15
+          Top = 40
+          Width = 40
+          Caption = 'Sort By:'
+          ParentColor = False
+        end
+      end
+    end
+    object Tab_Settings: TTabSheet
+      Caption = 'Settings'
+      ClientHeight = 525
+      ClientWidth = 464
+      object chk_adminstartup: TCheckBox
+        Left = 16
+        Height = 19
+        Top = 40
+        Width = 183
+        Caption = 'Password Required for Start Up'
+        TabOrder = 0
+      end
+      object btn_applysettings: TButton
+        Left = 120
+        Height = 25
+        Top = 488
+        Width = 75
+        Caption = 'Apply'
+        OnClick = btn_applysettingsClick
+        TabOrder = 1
+      end
+      object btn_defaultsettings: TButton
+        Left = 280
+        Height = 25
+        Top = 488
+        Width = 75
+        Caption = 'Default'
+        OnClick = btn_defaultsettingsClick
+        TabOrder = 2
+      end
+      object GroupBox4: TGroupBox
+        Left = 16
+        Height = 113
+        Top = 112
+        Width = 344
+        Caption = 'Time1'
+        ClientHeight = 95
+        ClientWidth = 340
+        TabOrder = 3
+        object Label27: TLabel
+          Left = 28
+          Height = 15
+          Top = 70
+          Width = 145
+          Caption = 'End Time of First Time Slot:'
+          ParentColor = False
+        end
+        object cbox_time1endmin: TComboBox
+          Left = 258
+          Height = 23
+          Top = 63
+          Width = 72
+          ItemHeight = 15
+          Items.Strings = (
+            '00'
+            '01'
+            '02'
+            '03'
+            '04'
+            '05'
+            '06'
+            '07'
+            '08'
+            '09'
+            '10'
+            '11'
+            '12'
+            '13'
+            '14'
+            '15'
+            '16'
+            '17'
+            '18'
+            '19'
+            '20'
+            '21'
+            '22'
+            '23'
+            '24'
+            '25'
+            '26'
+            '27'
+            '28'
+            '29'
+            '30'
+            '31'
+            '32'
+            '33'
+            '34'
+            '35'
+            '36'
+            '37'
+            '38'
+            '39'
+            '40'
+            '41'
+            '42'
+            '43'
+            '44'
+            '45'
+            '46'
+            '47'
+            '48'
+            '49'
+            '50'
+            '51'
+            '52'
+            '53'
+            '54'
+            '55'
+            '56'
+            '57'
+            '58'
+            '59'
+          )
+          Style = csDropDownList
+          TabOrder = 0
+        end
+        object Label28: TLabel
+          Left = 250
+          Height = 15
+          Top = 70
+          Width = 3
+          Caption = ':'
+          ParentColor = False
+        end
+        object cbox_time1endhr: TComboBox
+          Left = 186
+          Height = 23
+          Top = 63
+          Width = 59
+          ItemHeight = 15
+          Items.Strings = (
+            '00'
+            '01'
+            '02'
+            '03'
+            '04'
+            '05'
+            '06'
+            '07'
+            '08'
+            '09'
+            '10'
+            '11'
+            '12'
+            '13'
+            '14'
+            '15'
+            '16'
+            '17'
+            '18'
+            '19'
+            '20'
+            '21'
+            '22'
+            '23'
+          )
+          Style = csDropDownList
+          TabOrder = 1
+        end
+        object cbox_time1latemin: TComboBox
+          Left = 258
+          Height = 23
+          Top = 31
+          Width = 72
+          ItemHeight = 15
+          Items.Strings = (
+            '00'
+            '01'
+            '02'
+            '03'
+            '04'
+            '05'
+            '06'
+            '07'
+            '08'
+            '09'
+            '10'
+            '11'
+            '12'
+            '13'
+            '14'
+            '15'
+            '16'
+            '17'
+            '18'
+            '19'
+            '20'
+            '21'
+            '22'
+            '23'
+            '24'
+            '25'
+            '26'
+            '27'
+            '28'
+            '29'
+            '30'
+            '31'
+            '32'
+            '33'
+            '34'
+            '35'
+            '36'
+            '37'
+            '38'
+            '39'
+            '40'
+            '41'
+            '42'
+            '43'
+            '44'
+            '45'
+            '46'
+            '47'
+            '48'
+            '49'
+            '50'
+            '51'
+            '52'
+            '53'
+            '54'
+            '55'
+            '56'
+            '57'
+            '58'
+            '59'
+          )
+          Style = csDropDownList
+          TabOrder = 2
+        end
+        object Label26: TLabel
+          Left = 250
+          Height = 15
+          Top = 38
+          Width = 3
+          Caption = ':'
+          ParentColor = False
+        end
+        object cbox_time1latehr: TComboBox
+          Left = 186
+          Height = 23
+          Top = 30
+          Width = 59
+          ItemHeight = 15
+          Items.Strings = (
+            '00'
+            '01'
+            '02'
+            '03'
+            '04'
+            '05'
+            '06'
+            '07'
+            '08'
+            '09'
+            '10'
+            '11'
+            '12'
+            '13'
+            '14'
+            '15'
+            '16'
+            '17'
+            '18'
+            '19'
+            '20'
+            '21'
+            '22'
+            '23'
+          )
+          Style = csDropDownList
+          TabOrder = 3
+        end
+        object Label25: TLabel
+          Left = 27
+          Height = 15
+          Top = 38
+          Width = 147
+          Caption = 'Late Time of First Time Slot:'
+          ParentColor = False
+        end
+        object cbox_time1startmin: TComboBox
+          Left = 258
+          Height = 23
+          Top = 0
+          Width = 72
+          ItemHeight = 15
+          Items.Strings = (
+            '00'
+            '01'
+            '02'
+            '03'
+            '04'
+            '05'
+            '06'
+            '07'
+            '08'
+            '09'
+            '10'
+            '11'
+            '12'
+            '13'
+            '14'
+            '15'
+            '16'
+            '17'
+            '18'
+            '19'
+            '20'
+            '21'
+            '22'
+            '23'
+            '24'
+            '25'
+            '26'
+            '27'
+            '28'
+            '29'
+            '30'
+            '31'
+            '32'
+            '33'
+            '34'
+            '35'
+            '36'
+            '37'
+            '38'
+            '39'
+            '40'
+            '41'
+            '42'
+            '43'
+            '44'
+            '45'
+            '46'
+            '47'
+            '48'
+            '49'
+            '50'
+            '51'
+            '52'
+            '53'
+            '54'
+            '55'
+            '56'
+            '57'
+            '58'
+            '59'
+          )
+          Style = csDropDownList
+          TabOrder = 4
+        end
+        object cbox_time1starthr: TComboBox
+          Left = 186
+          Height = 23
+          Top = 0
+          Width = 59
+          ItemHeight = 15
+          Items.Strings = (
+            '00'
+            '01'
+            '02'
+            '03'
+            '04'
+            '05'
+            '06'
+            '07'
+            '08'
+            '09'
+            '10'
+            '11'
+            '12'
+            '13'
+            '14'
+            '15'
+            '16'
+            '17'
+            '18'
+            '19'
+            '20'
+            '21'
+            '22'
+            '23'
+          )
+          Style = csDropDownList
+          TabOrder = 5
+        end
+        object Label24: TLabel
+          Left = 24
+          Height = 15
+          Top = 7
+          Width = 149
+          Caption = 'Start Time of First Time Slot:'
+          ParentColor = False
+        end
+        object Label23: TLabel
+          Left = 250
+          Height = 15
+          Top = 7
+          Width = 3
+          Caption = ':'
+          ParentColor = False
+        end
+      end
+      object GroupBox5: TGroupBox
+        Left = 16
+        Height = 113
+        Top = 240
+        Width = 344
+        Caption = 'Time2'
+        ClientHeight = 95
+        ClientWidth = 340
+        TabOrder = 4
+        object Label11: TLabel
+          Left = 8
+          Height = 15
+          Top = 8
+          Width = 166
+          Caption = 'Start Time of Second Time Slot:'
+          ParentColor = False
+        end
+        object cbox_time2starthr: TComboBox
+          Left = 186
+          Height = 23
+          Top = 0
+          Width = 59
+          ItemHeight = 15
+          Items.Strings = (
+            '00'
+            '01'
+            '02'
+            '03'
+            '04'
+            '05'
+            '06'
+            '07'
+            '08'
+            '09'
+            '10'
+            '11'
+            '12'
+            '13'
+            '14'
+            '15'
+            '16'
+            '17'
+            '18'
+            '19'
+            '20'
+            '21'
+            '22'
+            '23'
+          )
+          Style = csDropDownList
+          TabOrder = 0
+        end
+        object cbox_time2startmin: TComboBox
+          Left = 258
+          Height = 23
+          Top = 0
+          Width = 72
+          ItemHeight = 15
+          Items.Strings = (
+            '00'
+            '01'
+            '02'
+            '03'
+            '04'
+            '05'
+            '06'
+            '07'
+            '08'
+            '09'
+            '10'
+            '11'
+            '12'
+            '13'
+            '14'
+            '15'
+            '16'
+            '17'
+            '18'
+            '19'
+            '20'
+            '21'
+            '22'
+            '23'
+            '24'
+            '25'
+            '26'
+            '27'
+            '28'
+            '29'
+            '30'
+            '31'
+            '32'
+            '33'
+            '34'
+            '35'
+            '36'
+            '37'
+            '38'
+            '39'
+            '40'
+            '41'
+            '42'
+            '43'
+            '44'
+            '45'
+            '46'
+            '47'
+            '48'
+            '49'
+            '50'
+            '51'
+            '52'
+            '53'
+            '54'
+            '55'
+            '56'
+            '57'
+            '58'
+            '59'
+          )
+          Style = csDropDownList
+          TabOrder = 1
+        end
+        object Label12: TLabel
+          Left = 9
+          Height = 15
+          Top = 38
+          Width = 164
+          Caption = 'Late Time of Second Time Slot:'
+          ParentColor = False
+        end
+        object cbox_time2latehr: TComboBox
+          Left = 186
+          Height = 23
+          Top = 31
+          Width = 59
+          ItemHeight = 15
+          Items.Strings = (
+            '00'
+            '01'
+            '02'
+            '03'
+            '04'
+            '05'
+            '06'
+            '07'
+            '08'
+            '09'
+            '10'
+            '11'
+            '12'
+            '13'
+            '14'
+            '15'
+            '16'
+            '17'
+            '18'
+            '19'
+            '20'
+            '21'
+            '22'
+            '23'
+          )
+          Style = csDropDownList
+          TabOrder = 2
+        end
+        object Label13: TLabel
+          Left = 250
+          Height = 15
+          Top = 38
+          Width = 3
+          Caption = ':'
+          ParentColor = False
+        end
+        object cbox_time2latemin: TComboBox
+          Left = 258
+          Height = 23
+          Top = 32
+          Width = 72
+          ItemHeight = 15
+          Items.Strings = (
+            '00'
+            '01'
+            '02'
+            '03'
+            '04'
+            '05'
+            '06'
+            '07'
+            '08'
+            '09'
+            '10'
+            '11'
+            '12'
+            '13'
+            '14'
+            '15'
+            '16'
+            '17'
+            '18'
+            '19'
+            '20'
+            '21'
+            '22'
+            '23'
+            '24'
+            '25'
+            '26'
+            '27'
+            '28'
+            '29'
+            '30'
+            '31'
+            '32'
+            '33'
+            '34'
+            '35'
+            '36'
+            '37'
+            '38'
+            '39'
+            '40'
+            '41'
+            '42'
+            '43'
+            '44'
+            '45'
+            '46'
+            '47'
+            '48'
+            '49'
+            '50'
+            '51'
+            '52'
+            '53'
+            '54'
+            '55'
+            '56'
+            '57'
+            '58'
+            '59'
+          )
+          Style = csDropDownList
+          TabOrder = 3
+        end
+        object Label14: TLabel
+          Left = 11
+          Height = 15
+          Top = 70
+          Width = 162
+          Caption = 'End Time of Second Time Slot:'
+          ParentColor = False
+        end
+        object cbox_time2endhr: TComboBox
+          Left = 186
+          Height = 23
+          Top = 63
+          Width = 59
+          ItemHeight = 15
+          Items.Strings = (
+            '00'
+            '01'
+            '02'
+            '03'
+            '04'
+            '05'
+            '06'
+            '07'
+            '08'
+            '09'
+            '10'
+            '11'
+            '12'
+            '13'
+            '14'
+            '15'
+            '16'
+            '17'
+            '18'
+            '19'
+            '20'
+            '21'
+            '22'
+            '23'
+          )
+          Style = csDropDownList
+          TabOrder = 4
+        end
+        object Label15: TLabel
+          Left = 250
+          Height = 15
+          Top = 70
+          Width = 3
+          Caption = ':'
+          ParentColor = False
+        end
+        object cbox_time2endmin: TComboBox
+          Left = 258
+          Height = 23
+          Top = 63
+          Width = 72
+          ItemHeight = 15
+          Items.Strings = (
+            '00'
+            '01'
+            '02'
+            '03'
+            '04'
+            '05'
+            '06'
+            '07'
+            '08'
+            '09'
+            '10'
+            '11'
+            '12'
+            '13'
+            '14'
+            '15'
+            '16'
+            '17'
+            '18'
+            '19'
+            '20'
+            '21'
+            '22'
+            '23'
+            '24'
+            '25'
+            '26'
+            '27'
+            '28'
+            '29'
+            '30'
+            '31'
+            '32'
+            '33'
+            '34'
+            '35'
+            '36'
+            '37'
+            '38'
+            '39'
+            '40'
+            '41'
+            '42'
+            '43'
+            '44'
+            '45'
+            '46'
+            '47'
+            '48'
+            '49'
+            '50'
+            '51'
+            '52'
+            '53'
+            '54'
+            '55'
+            '56'
+            '57'
+            '58'
+            '59'
+          )
+          Style = csDropDownList
+          TabOrder = 5
+        end
+        object Label21: TLabel
+          Left = 250
+          Height = 15
+          Top = 8
+          Width = 3
+          Caption = ':'
+          ParentColor = False
+        end
+      end
+      object GroupBox6: TGroupBox
+        Left = 16
+        Height = 113
+        Top = 368
+        Width = 344
+        Caption = 'Time3'
+        ClientHeight = 95
+        ClientWidth = 340
+        TabOrder = 5
+        object Label16: TLabel
+          Left = 19
+          Height = 15
+          Top = 8
+          Width = 155
+          Caption = 'Start Time of Third Time Slot:'
+          ParentColor = False
+        end
+        object cbox_time3starthr: TComboBox
+          Left = 186
+          Height = 23
+          Top = 0
+          Width = 59
+          ItemHeight = 15
+          Items.Strings = (
+            '00'
+            '01'
+            '02'
+            '03'
+            '04'
+            '05'
+            '06'
+            '07'
+            '08'
+            '09'
+            '10'
+            '11'
+            '12'
+            '13'
+            '14'
+            '15'
+            '16'
+            '17'
+            '18'
+            '19'
+            '20'
+            '21'
+            '22'
+            '23'
+          )
+          Style = csDropDownList
+          TabOrder = 0
+        end
+        object cbox_time3startmin: TComboBox
+          Left = 258
+          Height = 23
+          Top = 0
+          Width = 72
+          ItemHeight = 15
+          Items.Strings = (
+            '00'
+            '01'
+            '02'
+            '03'
+            '04'
+            '05'
+            '06'
+            '07'
+            '08'
+            '09'
+            '10'
+            '11'
+            '12'
+            '13'
+            '14'
+            '15'
+            '16'
+            '17'
+            '18'
+            '19'
+            '20'
+            '21'
+            '22'
+            '23'
+            '24'
+            '25'
+            '26'
+            '27'
+            '28'
+            '29'
+            '30'
+            '31'
+            '32'
+            '33'
+            '34'
+            '35'
+            '36'
+            '37'
+            '38'
+            '39'
+            '40'
+            '41'
+            '42'
+            '43'
+            '44'
+            '45'
+            '46'
+            '47'
+            '48'
+            '49'
+            '50'
+            '51'
+            '52'
+            '53'
+            '54'
+            '55'
+            '56'
+            '57'
+            '58'
+            '59'
+          )
+          Style = csDropDownList
+          TabOrder = 1
+        end
+        object Label17: TLabel
+          Left = 21
+          Height = 15
+          Top = 38
+          Width = 153
+          Caption = 'Late Time of Third Time Slot:'
+          ParentColor = False
+        end
+        object cbox_time3latehr: TComboBox
+          Left = 186
+          Height = 23
+          Top = 31
+          Width = 59
+          ItemHeight = 15
+          Items.Strings = (
+            '00'
+            '01'
+            '02'
+            '03'
+            '04'
+            '05'
+            '06'
+            '07'
+            '08'
+            '09'
+            '10'
+            '11'
+            '12'
+            '13'
+            '14'
+            '15'
+            '16'
+            '17'
+            '18'
+            '19'
+            '20'
+            '21'
+            '22'
+            '23'
+          )
+          Style = csDropDownList
+          TabOrder = 2
+        end
+        object Label18: TLabel
+          Left = 250
+          Height = 15
+          Top = 38
+          Width = 3
+          Caption = ':'
+          ParentColor = False
+        end
+        object cbox_time3latemin: TComboBox
+          Left = 258
+          Height = 23
+          Top = 31
+          Width = 72
+          ItemHeight = 15
+          Items.Strings = (
+            '00'
+            '01'
+            '02'
+            '03'
+            '04'
+            '05'
+            '06'
+            '07'
+            '08'
+            '09'
+            '10'
+            '11'
+            '12'
+            '13'
+            '14'
+            '15'
+            '16'
+            '17'
+            '18'
+            '19'
+            '20'
+            '21'
+            '22'
+            '23'
+            '24'
+            '25'
+            '26'
+            '27'
+            '28'
+            '29'
+            '30'
+            '31'
+            '32'
+            '33'
+            '34'
+            '35'
+            '36'
+            '37'
+            '38'
+            '39'
+            '40'
+            '41'
+            '42'
+            '43'
+            '44'
+            '45'
+            '46'
+            '47'
+            '48'
+            '49'
+            '50'
+            '51'
+            '52'
+            '53'
+            '54'
+            '55'
+            '56'
+            '57'
+            '58'
+            '59'
+          )
+          Style = csDropDownList
+          TabOrder = 3
+        end
+        object Label19: TLabel
+          Left = 22
+          Height = 15
+          Top = 70
+          Width = 151
+          Caption = 'End Time of Third Time Slot:'
+          ParentColor = False
+        end
+        object cbox_time3endhr: TComboBox
+          Left = 186
+          Height = 23
+          Top = 63
+          Width = 59
+          ItemHeight = 15
+          Items.Strings = (
+            '00'
+            '01'
+            '02'
+            '03'
+            '04'
+            '05'
+            '06'
+            '07'
+            '08'
+            '09'
+            '10'
+            '11'
+            '12'
+            '13'
+            '14'
+            '15'
+            '16'
+            '17'
+            '18'
+            '19'
+            '20'
+            '21'
+            '22'
+            '23'
+          )
+          Style = csDropDownList
+          TabOrder = 4
+        end
+        object Label20: TLabel
+          Left = 250
+          Height = 15
+          Top = 70
+          Width = 3
+          Caption = ':'
+          ParentColor = False
+        end
+        object Label22: TLabel
+          Left = 250
+          Height = 15
+          Top = 8
+          Width = 3
+          Caption = ':'
+          ParentColor = False
+        end
+        object cbox_time3endmin: TComboBox
+          Left = 258
+          Height = 23
+          Top = 63
+          Width = 72
+          ItemHeight = 15
+          Items.Strings = (
+            '00'
+            '01'
+            '02'
+            '03'
+            '04'
+            '05'
+            '06'
+            '07'
+            '08'
+            '09'
+            '10'
+            '11'
+            '12'
+            '13'
+            '14'
+            '15'
+            '16'
+            '17'
+            '18'
+            '19'
+            '20'
+            '21'
+            '22'
+            '23'
+            '24'
+            '25'
+            '26'
+            '27'
+            '28'
+            '29'
+            '30'
+            '31'
+            '32'
+            '33'
+            '34'
+            '35'
+            '36'
+            '37'
+            '38'
+            '39'
+            '40'
+            '41'
+            '42'
+            '43'
+            '44'
+            '45'
+            '46'
+            '47'
+            '48'
+            '49'
+            '50'
+            '51'
+            '52'
+            '53'
+            '54'
+            '55'
+            '56'
+            '57'
+            '58'
+            '59'
+          )
+          Style = csDropDownList
+          TabOrder = 5
+        end
+      end
+      object btn_chgpw: TButton
+        Left = 16
+        Height = 25
+        Top = 8
+        Width = 112
+        Caption = 'Change Password'
+        OnClick = btn_chgpwClick
+        TabOrder = 6
+      end
+      object Label4: TLabel
+        Left = 16
+        Height = 15
+        Top = 72
+        Width = 107
+        Caption = 'Check In Frequency:'
+        ParentColor = False
+      end
+      object cbox_cifreq: TComboBox
+        Left = 128
+        Height = 23
+        Top = 64
+        Width = 56
+        ItemHeight = 15
+        Items.Strings = (
+          '1'
+          '2'
+          '3'
+        )
+        OnChange = cbox_cifreqChange
+        Style = csDropDownList
+        TabOrder = 7
+      end
+    end
+  end
+  object MainMenu1: TMainMenu
+    left = 424
+    top = 34
+    object item_data: TMenuItem
+      Caption = '&Data'
+      object item_opendir: TMenuItem
+        Caption = 'Open &Directory'
+        Bitmap.Data = {
+          36040000424D3604000000000000360000002800000010000000100000000100
+          20000000000000040000640000006400000000000000000000002C86D8D12D88
+          D8F72D87D8F72D88D8F72D88D8F72D88D8F72D88D8F72D88D8F72D88D8F72D88
+          D8F72D88D8F72D87D8F72D88D8F72C86D8D1FFFFFF00FFFFFF00338ED9FBDCF0
+          FAFF98E1F6FF95E0F6FF92DFF6FF8EDEF5FF89DCF5FF85DAF4FF80D9F4FF7AD7
+          F3FF74D5F3FF70D3F2FFC2EAF8FF3594DAFFFFFFFF00FFFFFF003594DAF7EFFA
+          FEFF93E5F8FF8FE4F8FF89E3F8FF82E1F7FF7ADFF7FF71DEF6FF67DBF5FF5BD8
+          F4FF4DD4F3FF40D1F2FFCAF2FBFF3594DAFFFFFFFF00FFFFFF00369ADAF8F2FA
+          FDFF94E6F8FF92E5F8FF90E5F8FF8BE3F8FF86E2F7FF7FE1F7FF77DEF6FF6CDC
+          F6FF5ED9F4FF4FD5F3FFCCF2FBFF3594DAFFFFFFFF00FFFFFF0036A1DAF9F6FC
+          FEFF94E5F8FF93E5F8FF93E5F8FF91E5F8FF93DBE9FF93D7E3FF93D2DCFF90CE
+          D7FF8CC8CFFF86C1C6FFC9D8D6FF3594DAFFC57444E8CA7F53F137A6DAFAFEFF
+          FFFFF8FDFFFFF6FDFFFFF5FCFFFFF3FCFEFF9AE4F4FF9AE6F7FF9BE6F6FF9DE5
+          F5FF9EE5F5FF9FE5F4FFDAF3F8FF3594DAFFFDF4EEFFCA8054F935ABDAFAE8F6
+          FBFF70BCE7FF55AAE2FF4DA5E0FF91C9EBFFFAF3EFFFFDFEFDFFFFFDFCFFFFFD
+          FCFFFEFDFCFFFEFCFBFFFEFEFDFF3594DAFFEFF2E8FFCE8156FF36AADAF2F1FA
+          FDFF94DEF5FF93DCF4FF64BCE9FF3594DAFF3594DAFF3594DAFF3594DAFF3594
+          DAFF3594DAFF3594DAFF3594DAFF3594DAFFFBF6EFFFCC8355FE35AFDAF0F7FC
+          FEFF8EE4F8FF91DEF5FF9FE0F5FFACE1F6FFCA8452FFFFF7F1FFFFE9D9FFFFEA
+          DBFFFFE9D9FFFFE7D7FFFFE5D2FFFFE2CBFFFFF7F1FFCB8555FE36B3DAF8FDFE
+          FEFFFEFFFFFFFEFEFFFFFDFEFFFFFEFFFFFFE4BA91FFFFF7F0FFFFE7D5FFFDE7
+          D6FFFDE6D4FFFCE4D0FFFBE3CBFFFADCC2FFFEF3E8FFCC8656FE34B4D9D05EC2
+          E1FA60C3E2FA60C3E2FA60C3E2FA5FC3E2FAE4BB91FFFFF7F2FFFEE7D5FFFEE7
+          D5FFFDE5D1FFFAE0CAFFF9DEC4FFF7D9BCFFFDF2E7FFCC8757FEFFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00E4BB92FFFEF7F1FFFCE5D2FFFCE4
+          D1FFFBE2CCFFF9DDC4FFF6D7BBFFF3D1AFFFFAEFE4FFCC8758FEFFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00E4BB92FFFEF6F0FFFCE2CDFFFCE3
+          CDFFFADFC8FFF7D9BCFFF5E9DDFFFAF3EBFFFBF8F3FFCA8353FEFFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00E4BB93FFFEF5EDFFFCDEC5FFFBE0
+          C7FFF9DCC2FFF5D3B4FFFEF9F3FFFAE2C4FFECC193FFC37D4893FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00E5BE96FFFFFFFEFFFDF3E9FFFDF3
+          EAFFFCF2E8FFFAEFE3FFFAF2E7FFEABB88FFCF8555B3B4693D0CFFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00EAC39DFFE6BF96FFE4BB92FFE4BB
+          92FFD1A06CF5D09E6DF6CC965FDAC479427EB2673C09FFFFFF00
+        }
+        ShortCut = 16463
+        OnClick = item_opendirClick
+      end
+      object item_editmember: TMenuItem
+        Caption = 'Edit &Member'
+        Bitmap.Data = {
+          36040000424D3604000000000000360000002800000010000000100000000100
+          2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF001340
+          58FF15425EFF25699CFF2C76B4FF3B8BBAADFFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF001242
+          59FF5D9CD4FFA6CFF5FFA9CFECFF488BC1FF2C76B4FFFFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF001E6D
+          93FFCBE3F9FF61AAECFF4098E8FF1567C2FF1660AAFF2C76B4FFFFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF001E6D
+          93FFC8E1F2FFD1E7FAFF347DB5FF3199C3FF6DC4DCFF4A9CCFFF3483C7FFFFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF002063
+          98202689B9FFB0CBE1FF67A9C8FF60DCF5FF44D6F4FF8EEEFAFF5DB4E6FF3B8F
+          D9FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF002689B9FFBEE6F2FFB3F4FCFF60DCF5FF44D6F4FF8EEEFAFF5DB4
+          E6FF3B8FD9FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF002790BFFFC3EDF8FFB3F4FCFF60DCF5FF44D6F4FF8EEE
+          FAFF5DB4E6FF3B8FD9FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF002FBAE4FFC3EDF8FFB3F4FCFF60DCF5FF44D6
+          F4FF8EEEFAFF5DB4E6FF3B8FD9FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF002FBAE4FFC3EDF8FFB3F4FCFF60DC
+          F5FF44D6F4FF8EEEFAFF5DB4E6FF3B8FD9FFFFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF002FBAE4FFC3EDF8FFB3F4
+          FCFF68D9F5FF6FCFF3FF599DD0FF73ABDDFF4F91C9FFFFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF002FBAE4FFC3ED
+          F8FFA8E2F8FF6CAEDDFFA5CFF4FFA5CFF4FFBDDBF7FF5393CBF7FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF002FBA
+          E4FFA7D4F4FFC5E1F8FFCCE3F9FFCCE3F9FFBDDBF7FF4F90C9FDFFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF0050A8D9FF6AA5D8FFC9E1F7FFCBE3F8FF4295CAFF3182C2AEFFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF002FBAE4094FAADBEA5093CAFD4E90C8FF2F9DD2DF35A4DE19FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+        }
+        ShortCut = 16461
+        OnClick = item_editmemberClick
+      end
+      object item_reload: TMenuItem
+        Caption = '&Reload All'
+        Bitmap.Data = {
+          36040000424D3604000000000000360000002800000010000000100000000100
+          2000000000000004000064000000640000000000000000000000FFFFFF00A465
+          34A2A4653401FFFFFF00FFFFFF00A4653405A4653453A76A3ABEA66938E9A466
+          35FAA76A3AE4A76B3BAAA4653424FFFFFF00FFFFFF00FFFFFF00FFFFFF00A465
+          34FFA5673693FFFFFF00A4653454A66737EEB58055F3CEA684FFD8B697FFDBB9
+          99FFD3AC8AFFC2946DFCA66838F6A466355BFFFFFF00FFFFFF00FFFFFF00A567
+          37FEB7845BF7A56736D4B17A4EF4E3CAB4FFECDAC9FFE7D1BCFFE3C9B0FFDEBE
+          A0FFD2AB88FFCEA582FFD3AE8EFFA66838F5A465342AFFFFFF00FFFFFF00A668
+          38FDF1E4D8FFD4B295FEF4E9E0FFF3E8DDFFEDDCCCFFD2AD8FFEB0784CF5A566
+          35FBA66939FFA66939FEA96D3DFFB0784CFFA76A3AA8FFFFFF00FFFFFF00A567
+          37FDF6EEE6FFF5ECE3FFF5EDE4FFE6D2C1FFB0794DF5A66938CAA4653436FFFF
+          FF00A465346AA96B3CEDB67C4FFFA76A3AFEA56837FAFFFFFF00FFFFFF00A466
+          35FCF6EEE6FFEBD7C4FFEAD9C9FFA46534FEA465346AFFFFFF00FFFFFF00FFFF
+          FF00A465340BA56635E9C9956C8DB77F53C2A46534FFA4653405FFFFFF00A465
+          34FCF5EDE5FFF6EDE5FFF5ECE4FFD7B79CFDA66837E0A4653410FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00D5A47E1ACD997239A46534FCA465340CFFFFFF00A465
+          34F9A46534FEA46534FEA46534FDA46534FCA46534FBA46534B9A465341DA465
+          3418A4653418A4653418A4653418A4653418A465341CFFFFFF00FFFFFF00A465
+          340DFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00A46534A0A465
+          34FFAD7447F8AF774CF7AF774CF7AF784CF7A46534FFA4653408FFFFFF00A465
+          34FCB3794C7ECF9D762BBB835713A4653402FFFFFF00FFFFFF00A4653404A668
+          38C4D0AC8FFAF6EEE7FFF2E6DBFFF6EEE6FFA66A3AFBA4653409FFFFFF00A465
+          35FEA76A3AFBC791689DA56737E6A4653423FFFFFF00FFFFFF00FFFFFF00A465
+          3460A46635FFE9D7C7FFEBD8C6FFF5ECE3FFA66A3AFAA465340AFFFFFF00A668
+          38F3AB7041FFA96C3CFEA76A3AF5A4653475A4653419A4653445A66938CDB988
+          61F5EBDBCDFFF5EBE2FFF6EEE6FFF6EEE6FFA76A3AFAA465340BFFFFFF00A769
+          399BC09069FDC59872FFA86B3CFFA46635FFA76A3AFCB7855DF3D9BBA1FEF1E4
+          D8FFF2E6DBFFF3E8DDFFCEA788FDEAD8C8FFA76A3AF9A465340DFFFFFF00A465
+          3429A66939F5D3AD8CFFDCBD9DFFDDBEA1FFE5CBB4FFE9D3BFFFEEDDCCFFF0E2
+          D5FFE7D2BFFFAF774BF5A56736C0AB7143F7A46635FCA465340EFFFFFF00FFFF
+          FF00A4653550A66838F6C09068FAD3B08FFFDFC2A8FFDEC1A8FFD4B193FFB987
+          5FF4A56737F0A4653458FFFFFF00A4663566A46534FFA465340FFFFFFF00FFFF
+          FF00FFFFFF00A465341DA7693A9FA76A3ADEA56736F6A76939E5A76A3ABCA465
+          3453A4653405FFFFFF00FFFFFF00FFFFFF00A4653479A4653410
+        }
+        ShortCut = 16466
+        OnClick = item_reloadClick
+      end
+    end
+    object item_log: TMenuItem
+      Caption = '&Log'
+      object item_clrlog: TMenuItem
+        Caption = '&Clear Log'
+        Bitmap.Data = {
+          36040000424D3604000000000000360000002800000010000000100000000100
+          2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00008B9C1F008C9DED008D9EEC008D
+          9E9E008B9C21FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00008B9C13008D9EE24FC3D2FD5BD3E1FF30B5
+          C6FA0890A1F6008D9FA9008B9C14FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00008E9FC536B5C5FA5FD8E7FF26CADFFF4ED4
+          E5FF6DD9E7FF32B4C5FB008D9EE6008B9C26FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00008B9C431A9BABF66CDAE8FF10C5DCFF03C2DAFF03C2
+          DAFF15C6DCFF5BD7E7FF56C8D6FE058FA0F1008B9C3FFFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00018EA0D45ECFDDFF46DAEDFF18D0E7FF11CBE3FF07C4
+          DCFF03C2DAFF03C2DAFF4CD3E4FF58CDDCFF048E9FF4008B9C1CFFFFFF00FFFF
+          FF00FFFFFF00008B9C1A1194A5F78BEDFBFF3CE5FCFF37E4FBFF2FDEF6FF23D7
+          EEFF14CDE5FF04C3DBFF03C2DAFF56D6E6FF33B6C6FB008E9FA8FFFFFF00FFFF
+          FF00FFFFFF00007F9C5F2FB0C0F58AEFFDFF5FEAFDFF61EBFDFF52E9FDFF3CE6
+          FDFF2ADBF3FF18D0E7FF10C6DCFF49D2E4FF67D4E2FF018D9FE9FFFFFF00FFFF
+          FF00008B9C070024A1D71342ADFC84EAFBFF6BECFDFF84EFFDFF6DECFDFF52E9
+          FDFF44E5FBFF65E3F3FF77DDEBFF49C1CFFE1B9EAEF3008C9DEAFFFFFF00008B
+          9C5F008D9EEB29A5BBF6284ABBFF1D38B8FF61D8F6FF63EAFDFF6CEBFDFF7DEE
+          FDFF88EAF8FF45BECDFA058F9FF7008E9FA3008B9C40008B9C02FFFFFF00008B
+          9C5A018D9EF64FC8D8FF68DCECFF336DC8FF0D1BABFF62B1D7FF72DCEAFF43BD
+          CCF70990A2F6018E9F9F008B9C1BFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF000064878100889CFE41BDCDFF77DEEBFF1769B0F70036A0E4018FA0D2008C
+          9D77008B9C15FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0000487802004A
+          7B95014E80F40B76B2FF0188A1FF32AEBEFE1DA0B1F2008B9C3DFFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF000049796F0352
+          86F40F7ABCFF107DC1FF015284F200859ACE008B9CFF008B9C29FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00004A7BED0C72
+          B2FF107DC1FF0A6BA9FF004A7BDA00698A02008B9C82008B9C13FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00004A7BE50A69
+          A6FF0B6DABFF004A7BF500487844FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF000048783B004B
+          7CDA004A7BE300487847FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+        }
+        ShortCut = 24643
+        OnClick = item_clrlogClick
+      end
+      object item_save: TMenuItem
+        Caption = '&Save Log'
+        Bitmap.Data = {
+          36040000424D3604000000000000360000002800000010000000100000000100
+          2000000000000004000064000000640000000000000000000000BA6A368FB969
+          35B5B86935EEB76835FFB56835FFB46734FFB26634FFB06533FFAE6433FFAC63
+          32FFAA6232FFA96132FFA86031FFA76031FEA66031F1A86131C4BA6A35DEEBC6
+          ADFFEAC5ADFFFEFBF8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFB
+          F8FFFEFBF8FFFEFBF8FFFEFBF8FFC89A7CFFC79879FFA76031EDBA6B37FEEDCA
+          B3FFE0A27AFFFEFAF7FF62C088FF62C088FF62C088FF62C088FF62C088FF62C0
+          88FF62C088FF62C088FFFDF9F6FFCA8D65FFC99B7CFFA76031FEBB6C38FFEECC
+          B6FFE1A27AFFFEFAF7FFBFDCC2FFBFDCC2FFBFDCC2FFBFDCC2FFBFDCC2FFBFDC
+          C2FFBFDCC2FFBFDCC2FFFDF9F6FFCD9068FFCC9E81FFA86132FFBB6B38FFEFCE
+          B8FFE1A279FFFEFAF7FF62C088FF62C088FF62C088FF62C088FF62C088FF62C0
+          88FF62C088FF62C088FFFDF9F6FFCF936AFFCEA384FFAA6132FFBA6A36FFEFD0
+          BBFFE2A27AFFFEFBF8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFB
+          F8FFFEFBF8FFFEFBF8FFFEFBF8FFD3966DFFD2A78AFFAB6232FFBB6A36FFF0D2
+          BEFFE2A37AFFE2A37AFFE1A37AFFE2A37BFFE1A37BFFE0A178FFDE9F77FFDD9F
+          76FFDC9D74FFD99B72FFD89971FFD69970FFD5AB8EFFAD6333FFBB6A36FFF2D5
+          C2FFE3A37AFFE3A37AFFE2A37BFFE2A37BFFE2A47BFFE1A279FFE0A178FFDEA0
+          77FFDE9E75FFDC9D74FFDA9B73FFD99B73FFDAB095FFAF6433FFBB6A36FFF2D8
+          C5FFE3A47BFFE3A37AFFE3A47AFFE2A47BFFE2A37BFFE1A37BFFE1A279FFDFA0
+          77FFDE9F76FFDD9E74FFDB9C72FFDC9D74FFDDB59AFFB16534FFBB6B36FFF4D9
+          C7FFE6A67DFFC88C64FFC98D65FFC98E67FFCB926CFFCB926DFFCA9069FFC88C
+          65FFC88C64FFC88C64FFC88C64FFDA9C74FFE1BA9FFFB36634FFBB6B36FEF4DC
+          C9FFE7A77DFFF9ECE1FFF9ECE1FFF9EDE3FFFCF4EEFFFDFAF7FFFDF7F3FFFAED
+          E5FFF7E7DBFFF7E5D9FFF6E5D8FFDEA077FFE4BEA4FFB46734FFBC6B36FAF5DD
+          CCFFE7A87EFFFAF0E8FFFAF0E8FFC98D66FFFAF0E9FFFDF8F3FFFEFAF8FFFCF4
+          EFFFF9E9DFFFF7E7DBFFF7E5D9FFE0A278FFE7C2A9FFB66835FFBC6B36F0F6DF
+          D0FFE8A87EFFFCF6F1FFFCF6F1FFC88C64FFFAF1E9FFFBF4EEFFFDFAF7FFFDF9
+          F6FFFAF0E8FFF8E8DDFFF7E6DBFFE1A37AFFEFD5C3FFB76935FEBC6B36D8F6DF
+          D1FFE9AA80FFFEFAF6FFFDFAF6FFC88C64FFFBF3EEFFFBF1EAFFFCF6F2FFFEFB
+          F8FFFCF6F1FFF9ECE2FFF8E7DBFFEED0BAFFECD0BDFFBB703EF8BC6B369BF6E0
+          D1FFF7E0D1FFFEFBF8FFFEFBF7FFFDF9F6FFFCF5F0FFFAF0EAFFFBF2EDFFFDF9
+          F6FFFDFAF7FFFBF1EBFFF8E9DFFEECD0BDFBC9895EECB5693563BC6B3671BC6B
+          3690BC6B36CCBC6B36EEBC6B36FABB6B36FEBB6B36FFBB6A36FFBB6A36FFBC6C
+          39FFBD6E3BFFBB6D3AFFBB6B38EFBB703ECBB6693554FFFFFF00
+        }
+        ShortCut = 16467
+        OnClick = item_saveClick
+      end
+    end
+    object item_helpabout: TMenuItem
+      Caption = '&Help/About'
+      object item_about: TMenuItem
+        Caption = '&About'
+        Bitmap.Data = {
+          36040000424D3604000000000000360000002800000010000000100000000100
+          2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00975435239453347D925234DB8A5034F3884F34F38950
+          35DB8950357D84503623FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF009F563453995534E6B28057FFD5B793FFDBC3A6FFDAC3A6FFD2B4
+          90FFAB7A52FF864F34E688503553FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00A76234539F5533F4CBA77DFFD8BB9FFFC39C77FFB68A62FFB48660FFBE96
+          72FFD1B397FFC5A377FF844F35F489503553FFFFFF00FFFFFF00FFFFFF00AF70
+          3522AB6935E5CFAA81FFDABCA2FFBE9166FFBA8C62FFB7895FFFB3845EFFB183
+          5DFFB0835CFFCDAA8DFFC6A579FF895034E589503522FFFFFF00FFFFFF00B878
+          357EBF915EFFE0C2A8FFC5966CFFC29169FFE1CBB8FFFEFDFCFFFFFFFEFFEADC
+          D0FFB4855EFFB3855EFFD4B599FFAE7B56FF8F51357EFFFFFF00FFFFFF00BC7E
+          35DBDBBC9CFFD5AD89FFC7986CFFC39569FFC19367FFEDDFD3FFFAF7F4FFBB8B
+          63FFB98A63FFB88A62FFC59D78FFD2B893FF905135DBFFFFFF00FFFFFF00BF7E
+          35F6E3C7AFFFD0A276FFC5996BFFC4976AFFC49669FFEEE0D4FFFBF7F4FFBF90
+          66FFBE8F65FFBE8F64FFBE9269FFDFC6AAFF925034F6FFFFFF00FFFFFF00C585
+          3BF6E4C9B0FFD0A37AFFCC9D71FFC79A6CFFC5986BFFFFFFFFFFFFFFFEFFC396
+          69FFC19468FFC29468FFC3986DFFDFC5ABFF955334F6FFFFFF00FFFFFF00CB8E
+          41DBE0BC9FFFDBB393FFCFA075FFCD9E72FFCB9C71FFDDBFA3FFDDBFA2FFC599
+          6BFFC5996BFFC4986BFFD1AB85FFD8BA97FF9E5635DBFFFFFF00FFFFFF00CE91
+          477ECD9C68FFE7CBB4FFD4A57AFFD0A077FFCF9E74FFFBF8F5FFFBF8F5FFCB9E
+          71FFCB9D71FFCDA177FFDFC0A5FFB98A5BFFA45C347EFFFFFF00FFFFFF00D293
+          4C22CE8E47E5D9B28CFFE6CAB3FFD6A97DFFD1A579FFE2C4A8FFE1C3A8FFD0A2
+          76FFD1A477FFDDBDA2FFD0AC85FFAB6635E5A9653522FFFFFF00FFFFFF00FFFF
+          FF00D4964D53CF8D47F4D9B28CFFE6CDB8FFE0BA9DFFD7AB85FFD6A982FFD9B3
+          91FFE1C2ABFFD4AE86FFB16B35F4B16F3553FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00D6974F53D19149E6D0A06AFFE0BFA0FFE3C5AEFFE3C5AEFFDFBC
+          9FFFC89762FFBD7D35E6BC7E3553FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00D8985223D4964D7DD2924CDBCD8C45F3CB8B41F3C98B
+          40DBC78B407DC5873D23FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+        }
+        ShortCut = 24641
+        OnClick = item_aboutClick
+      end
+      object item_devlog: TMenuItem
+        Caption = 'Dev. Log'
+        Enabled = False
+        Bitmap.Data = {
+          36040000424D3604000000000000360000002800000010000000100000000100
+          2000000000000004000064000000640000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          000000000000000000000000000000000000BE7A45FFBE7A45FFBE7A45FF0000
+          0000000000000000000000000000000000000000000000000000000000000000
+          000000000000BE7A45FFBE7A45FF78553958BE7A45FFE3CDBCFFBE7A45FF7855
+          3958BE7A45FFBE7A45FF00000000000000000000000000000000000000000000
+          0000BE7A45FFE3CDBCFFD2A786FFBE7A45FFC79064FFDAB89DFFC79064FFBE7A
+          45FFD2A786FFE3CDBCFFBE7A45FF000000000000000000000000000000000000
+          0000BE7A45FFD2A786FFDAB89DFFDAB89DFFDAB89DFFDAB89DFFDAB89DFFDAB8
+          9DFFDAB89DFFD2A786FFBE7A45FF000000000000000000000000000000000000
+          000078553958BE7A45FFE3CDBCFFCFA17CFFBD7F4CF8C38656FFBA7A46F4D5AE
+          8FFFDAB89DFFBE7A45FF7855395800000000000000000000000000000000BE7A
+          45FFBE7A45FFC79064FFDAB89DFFBD7F4CF8B78256CD78553959A56F43C0BA7A
+          46F4DAB89DFFC79064FFBE7A45FFBE7A45FF000000000000000000000000BE7A
+          45FFE3CDBCFFDAB89DFFDAB89DFFC38656FF785539590000000078553959C386
+          56FFDAB89DFFDAB89DFFE3CDBCFFBE7A45FF000000000000000000000000BE7A
+          45FFBE7A45FFC79064FFDAB89DFFBA7A46F49C6B42AE785539598F633F97BA7C
+          49EEDAB89DFFC79064FFBE7A45FFBE7A45FF0000000000000000000000000000
+          000078553958BE7A45FFDAB89DFFCFA17CFFBA7A46F4C38656FFBA7A46F4D1A5
+          82FFDAB89DFFBE7A45FF78553958000000000000000000000000000000000000
+          0000BE7A45FFD2A786FFDAB89DFFDAB89DFFDAB89DFFDAB89DFFDAB89DFFDAB8
+          9DFFDAB89DFFD2A786FFBE7A45FF000000000000000000000000000000000000
+          0000BE7A45FFE3CDBCFFD2A786FFBE7A45FFC79064FFDAB89DFFC79064FFBE7A
+          45FFD2A786FFE3CDBCFFBE7A45FF000000000000000000000000000000000000
+          000078553958BE7A45FFBE7A45FF78553958BE7A45FFE3CDBCFFBE7A45FF7855
+          3958BE7A45FFBE7A45FF00000000000000000000000000000000000000000000
+          000000000000000000000000000000000000BE7A45FFBE7A45FFBE7A45FF0000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000
+        }
+        OnClick = item_devlogClick
+      end
+    end
+  end
+  object SaveDialog1: TSaveDialog
+    left = 424
+    top = 96
+  end
+  object DCP_sha512_1: TDCP_sha512
+    Id = 30
+    Algorithm = 'SHA512'
+    HashSize = 512
+    left = 424
+    top = 160
+  end
+end

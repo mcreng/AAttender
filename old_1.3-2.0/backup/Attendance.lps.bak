@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="9"/>
+    <BuildModes Active="Default"/>
+    <Units Count="2">
+      <Unit0>
+        <Filename Value="Attendance.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Attendance"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="0"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1327"/>
+        <CursorPos X="17" Y="1358"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="C:\lazarus\lcl\extctrls.pp"/>
+        <UnitName Value="ExtCtrls"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="199"/>
+        <CursorPos X="19" Y="179"/>
+        <UsageCount Value="10"/>
+      </Unit1>
+    </Units>
+    <General>
+      <ActiveWindowIndexAtStart Value="0"/>
+    </General>
+    <JumpHistory Count="22" HistoryIndex="21">
+      <Position1>
+        <Filename Value="Attendance.pas"/>
+        <Caret Line="135" Column="6" TopLine="102"/>
+      </Position1>
+      <Position2>
+        <Filename Value="Attendance.pas"/>
+        <Caret Line="144" Column="6" TopLine="111"/>
+      </Position2>
+      <Position3>
+        <Filename Value="Attendance.pas"/>
+        <Caret Line="240" Column="14" TopLine="207"/>
+      </Position3>
+      <Position4>
+        <Filename Value="Attendance.pas"/>
+        <Caret Line="241" Column="6" TopLine="208"/>
+      </Position4>
+      <Position5>
+        <Filename Value="Attendance.pas"/>
+        <Caret Line="135" Column="6" TopLine="102"/>
+      </Position5>
+      <Position6>
+        <Filename Value="Attendance.pas"/>
+        <Caret Line="144" Column="6" TopLine="111"/>
+      </Position6>
+      <Position7>
+        <Filename Value="Attendance.pas"/>
+        <Caret Line="240" Column="14" TopLine="207"/>
+      </Position7>
+      <Position8>
+        <Filename Value="Attendance.pas"/>
+        <Caret Line="241" Column="6" TopLine="208"/>
+      </Position8>
+      <Position9>
+        <Filename Value="Attendance.pas"/>
+        <Caret Line="1292" Column="68" TopLine="1"/>
+      </Position9>
+      <Position10>
+        <Filename Value="Attendance.pas"/>
+        <Caret Line="21" Column="21" TopLine="4"/>
+      </Position10>
+      <Position11>
+        <Filename Value="Attendance.pas"/>
+        <Caret Line="1279" Column="38" TopLine="1262"/>
+      </Position11>
+      <Position12>
+        <Filename Value="Attendance.pas"/>
+        <Caret Line="1278" Column="45" TopLine="1262"/>
+      </Position12>
+      <Position13>
+        <Filename Value="Attendance.pas"/>
+        <Caret Line="205" Column="23" TopLine="189"/>
+      </Position13>
+      <Position14>
+        <Filename Value="Attendance.pas"/>
+        <Caret Line="1282" Column="14" TopLine="457"/>
+      </Position14>
+      <Position15>
+        <Filename Value="Attendance.pas"/>
+        <Caret Line="571" Column="78" TopLine="546"/>
+      </Position15>
+      <Position16>
+        <Filename Value="Attendance.pas"/>
+        <Caret Line="560" Column="17" TopLine="546"/>
+      </Position16>
+      <Position17>
+        <Filename Value="Attendance.pas"/>
+        <Caret Line="576" Column="17" TopLine="565"/>
+      </Position17>
+      <Position18>
+        <Filename Value="Attendance.pas"/>
+        <Caret Line="702" Column="14" TopLine="675"/>
+      </Position18>
+      <Position19>
+        <Filename Value="Attendance.pas"/>
+        <Caret Line="784" Column="14" TopLine="757"/>
+      </Position19>
+      <Position20>
+        <Filename Value="Attendance.pas"/>
+        <Caret Line="827" Column="14" TopLine="800"/>
+      </Position20>
+      <Position21>
+        <Filename Value="Attendance.pas"/>
+        <Caret Line="1260" Column="14" TopLine="1233"/>
+      </Position21>
+      <Position22>
+        <Filename Value="Attendance.pas"/>
+        <Caret Line="1356" Column="17" TopLine="1326"/>
+      </Position22>
+    </JumpHistory>
+  </ProjectSession>
+  <EditorMacros Count="0"/>
+</CONFIG>

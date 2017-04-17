@@ -1,0 +1,179 @@
+object form_memedit: Tform_memedit
+  Left = 47
+  Height = 399
+  Top = 204
+  Width = 688
+  AutoSize = True
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'Member Editor'
+  ClientHeight = 379
+  ClientWidth = 688
+  Menu = MainMenu1
+  OnActivate = FormActivate
+  OnClose = FormClose
+  OnCloseQuery = FormCloseQuery
+  LCLVersion = '1.2.4.0'
+  object Panel1: TPanel
+    Left = 160
+    Height = 383
+    Top = 1
+    Width = 530
+    Caption = 'Panel1'
+    TabOrder = 5
+  end
+  object gbox_pinfo: TGroupBox
+    Left = 296
+    Height = 104
+    Top = 8
+    Width = 239
+    Caption = 'Personal Info'
+    ClientHeight = 86
+    ClientWidth = 235
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 37
+      Height = 15
+      Top = 16
+      Width = 14
+      Caption = 'ID:'
+      ParentColor = False
+    end
+    object Label2: TLabel
+      Left = 16
+      Height = 15
+      Top = 48
+      Width = 35
+      Caption = 'Name:'
+      ParentColor = False
+    end
+    object tbox_id: TEdit
+      Left = 61
+      Height = 23
+      Top = 8
+      Width = 152
+      OnKeyUp = tbox_idKeyUp
+      TabOrder = 0
+    end
+    object tbox_name: TEdit
+      Left = 61
+      Height = 23
+      Top = 40
+      Width = 152
+      OnChange = tbox_nameChange
+      OnKeyUp = tbox_nameKeyUp
+      TabOrder = 1
+    end
+  end
+  object gbox_dinfo: TGroupBox
+    Left = 240
+    Height = 216
+    Top = 120
+    Width = 376
+    Caption = 'Duty Info'
+    ClientHeight = 198
+    ClientWidth = 372
+    TabOrder = 1
+    object list_disable: TListBox
+      Left = 232
+      Height = 160
+      Top = 32
+      Width = 128
+      ItemHeight = 0
+      MultiSelect = True
+      OnSelectionChange = list_disableSelectionChange
+      TabOrder = 0
+    end
+    object list_enable: TListBox
+      Left = 8
+      Height = 160
+      Top = 32
+      Width = 128
+      ItemHeight = 0
+      MultiSelect = True
+      OnSelectionChange = list_enableSelectionChange
+      TabOrder = 1
+    end
+    object btn_trigger: TButton
+      Left = 144
+      Height = 48
+      Top = 88
+      Width = 80
+      Caption = '< -- >'
+      OnClick = btn_triggerClick
+      TabOrder = 2
+    end
+    object Label3: TLabel
+      Left = 48
+      Height = 15
+      Top = 8
+      Width = 42
+      Caption = 'Enabled'
+      ParentColor = False
+    end
+    object Label4: TLabel
+      Left = 272
+      Height = 15
+      Top = 8
+      Width = 45
+      Caption = 'Disabled'
+      ParentColor = False
+    end
+  end
+  object btn_save: TButton
+    Left = 384
+    Height = 25
+    Top = 344
+    Width = 83
+    Caption = 'Save'
+    OnClick = btn_saveClick
+    TabOrder = 2
+  end
+  object btn_prev: TButton
+    Left = 176
+    Height = 25
+    Top = 152
+    Width = 51
+    Caption = '<<'
+    OnClick = btn_prevClick
+    TabOrder = 3
+  end
+  object btn_succ: TButton
+    Left = 624
+    Height = 25
+    Top = 152
+    Width = 51
+    Caption = '>>'
+    OnClick = btn_succClick
+    TabOrder = 4
+  end
+  object lsbox: TListBox
+    Left = 0
+    Height = 384
+    Top = 0
+    Width = 160
+    ItemHeight = 0
+    OnClick = lsboxClick
+    OnDblClick = lsboxDblClick
+    TabOrder = 6
+  end
+  object MainMenu1: TMainMenu
+    left = 632
+    top = 16
+    object btn_openini: TMenuItem
+      Caption = 'Open &Source'
+      ShortCut = 16463
+      OnClick = btn_openiniClick
+    end
+    object item_add: TMenuItem
+      Caption = '&Add Member'
+      ShortCut = 16491
+      OnClick = item_addClick
+    end
+    object item_del: TMenuItem
+      Caption = '&Delete Member'
+      ShortCut = 46
+      OnClick = item_delClick
+    end
+  end
+end
